@@ -7,3 +7,4 @@ class HomepageUser(FastHttpUser):
     @task
     def homepage(self):
         self.client.get("/")
+        self.client.post("/")

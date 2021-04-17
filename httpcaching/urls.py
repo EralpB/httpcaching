@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homepage.views import Homepage
+from homepage.views import Homepage, DynamicHomepage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Homepage.as_view(), name='homepage'),
+    path('dynamic', DynamicHomepage.as_view(), name='dynamichomepage'),
 ]
