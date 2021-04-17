@@ -7,4 +7,4 @@ class Homepage(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         time.sleep(1)
-        super().dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
