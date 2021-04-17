@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World Title</title>
+</head>
+<body>
+Hello World!
+<div id="hello"></div>
+<script>
+    function personalizePage(data) {
+        let welcomeDiv = document.getElementById('hello')
+        if (data['authenticated']) {
+            welcomeDiv.innerText = 'Welcome ' + data['username']
+        } else {
+            welcomeDiv.innerText = 'Welcome stranger, please sign up!'
+        }
+    }
+
+    fetch('/dynamic', {
+        credentials: "same-origin", // This includes user's cookies
+        method: "POST"
+    }).then(response => response.json())
+        .then(data => personalizePage(data));
+</script>
+</body>
+</html>
